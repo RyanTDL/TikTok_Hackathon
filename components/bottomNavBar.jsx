@@ -16,13 +16,13 @@ export default function BottomNavBar(){
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.bottomIcons}>
-                <Ionicons name="home-outline" size={24} color="black" />
-                <Text>Home</Text>
+                <Ionicons name="home-outline" size={24} color="grey" />
+                <Text style={{color:'grey'}}>Home</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.bottomIcons}>
-                <MaterialCommunityIcons name="shopping-outline" size={24} color="black" />                
-                <Text>Shop</Text>
+                <MaterialCommunityIcons name="shopping-outline" size={24} color="grey" />                
+                <Text style={{color:'grey'}}>Shop</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.bottomIcons}>
@@ -31,13 +31,13 @@ export default function BottomNavBar(){
 
 
             <TouchableOpacity style={styles.bottomIcons}>
-                <Ionicons name="ios-chatbox-ellipses-outline" size={24} color="black" />                
-                <Text>Inbox</Text>
+                <Ionicons name="ios-chatbox-ellipses-outline" size={24} color="grey" />                
+                <Text style={{color:'grey'}}>Inbox</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.bottomIcons}>
-                <Ionicons name="md-person-outline" size={24} color="black" />                
-                <Text>Profile</Text>
+                <Ionicons name="md-person-outline" size={24} color="grey" />                
+                <Text style={{color:'grey'}}>Profile</Text>
             </TouchableOpacity>
         </View>
     );
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         width: '100%',
-        height: 70,
+        height: "10%",
         backgroundColor: 'white',
         borderWidth: 0.5,
         justifyContent: 'space-around',
