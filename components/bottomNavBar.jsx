@@ -12,15 +12,21 @@ import {
     FontAwesome
 } from "@expo/vector-icons";
 
-export default function BottomNavBar(){
+export default function BottomNavBar({navigation}){
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.bottomIcons}>
+            <TouchableOpacity 
+                style={styles.bottomIcons}
+                onPress={()=>navigation.navigate('Home Page')}
+            >
                 <Ionicons name="home-outline" size={24} color="grey" />
                 <Text style={{color:'grey'}}>Home</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.bottomIcons}>
+            <TouchableOpacity 
+                style={styles.bottomIcons}
+                onPress={()=>navigation.navigate('Shop Page')}
+            >
                 <MaterialCommunityIcons name="shopping-outline" size={24} color="grey" />                
                 <Text style={{color:'grey'}}>Shop</Text>
             </TouchableOpacity>
@@ -30,12 +36,18 @@ export default function BottomNavBar(){
             </TouchableOpacity>
 
 
-            <TouchableOpacity style={styles.bottomIcons}>
+            <TouchableOpacity 
+                style={styles.bottomIcons}
+                onPress={()=>navigation.navigate('Activity Page')}
+            >
                 <Ionicons name="ios-chatbox-ellipses-outline" size={24} color="grey" />                
                 <Text style={{color:'grey'}}>Inbox</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.bottomIcons}>
+            <TouchableOpacity 
+                style={styles.bottomIcons}
+                onPress={()=>navigation.navigate('Profile Page')}
+            >
                 <Ionicons name="md-person-outline" size={24} color="grey" />                
                 <Text style={{color:'grey'}}>Profile</Text>
             </TouchableOpacity>

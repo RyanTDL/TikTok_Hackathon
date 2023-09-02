@@ -5,19 +5,19 @@ import {
     Text, 
     StyleSheet, 
     TouchableOpacity, 
+    FlatList,
     ScrollView,
 } from "react-native";
-import ItemDisplay from "../components/itemDisplay";
-import BottomNavBar from "../components/bottomNavBar";
 import { 
     MaterialCommunityIcons,
     AntDesign,
     FontAwesome5 
 } from '@expo/vector-icons'; 
-// import Modal from "react-native-modal";
+import BottomNavBar from "../components/bottomNavBar";
+import itemList from "../constants/itemList";
+import DisplayItem from "../components/itemDisplay";
 
-
-export default function ShopPage(){
+export default function ShopPage({navigation}){
 
     return(
         <SafeAreaView style={styles.container}>
@@ -48,50 +48,31 @@ export default function ShopPage(){
                     <Text style={{color: 'grey', fontSize:16, fontWeight:'500'}}>Food</Text>
                 </View>
             </View>
-            <View style={{width:'100%', height:'75%'}}>
-                <ScrollView>
-                    <View style={styles.itemRow}>
-                        <ItemDisplay 
-                            item={'Item 1'}
-                            price={'100'}
-                            rating={'4.7'}
+            <View style={{width:'100%', height:'75%'}}>              
+                <FlatList
+                    data={itemList}
+                    renderItem={({item}) => 
+                        <DisplayItem
+                            navigation={navigation} 
+                            item1={item.item1} 
+                            item2={item.item2} 
+                            price1={item.price1}
+                            price2={item.price2}
+                            rating1={item.rating1}
+                            rating2={item.rating2}
+                            image1={item.image1}
+                            image2={item.image2}
+                            navigationItemName1={item.navigationItemName1}
+                            navigationItemName2={item.navigationItemName2}
                         />
-                        <ItemDisplay 
-                            item={'Item 2'}
-                            price={'290'}
-                            rating={'4.9'}
-                        />                   
-                    </View>
-                    <View style={styles.itemRow}>
-                        <ItemDisplay 
-                            item={'Item 3'}
-                            price={'65'}
-                            rating={'3.9'}
-                        />
-                        <ItemDisplay 
-                            item={'Item 4'}
-                            price={'225'}
-                            rating={'4.6'}
-                        />
-                    </View>
-                    <View style={styles.itemRow}>
-                        <ItemDisplay 
-                            item={'Item 5'}
-                            price={'72'}
-                            rating={'2.9'}
-                        />
-                        <ItemDisplay 
-                            item={'Item 6'}
-                            price={'120'}
-                            rating={'3.7'}
-                        />
-                    </View>
-                </ScrollView>
+                    }
+                />
             </View>
-            <BottomNavBar />
+            <BottomNavBar navigation={navigation}/>
         </SafeAreaView>
     )
 }
+
 
 const styles = StyleSheet.create({
     container: {

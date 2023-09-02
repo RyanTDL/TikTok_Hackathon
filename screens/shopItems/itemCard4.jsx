@@ -15,12 +15,12 @@ import {
     AntDesign 
 } from "@expo/vector-icons";
 
-export default function ItemCard({price, name}) {
+export default function ItemCard4({navigation, price, name}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.topHeader}>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Shop Page')}>
                         <Ionicons name="chevron-back-sharp" size={30} color="black" />
                     </TouchableOpacity>
                 </View>
@@ -42,13 +42,15 @@ export default function ItemCard({price, name}) {
                     style={{height: '100%', width: '100%'}}
                     resizeMode="contain"
                     // source={require(image)} 
-                    source={require('../assets/camera.png')} 
+                    source={require('../../assets/gifts/laptop.png')} 
                 />
             </View>
             
             <View style={styles.itemDescriptor}>
-                <Text style={{fontSize: 20, fontWeight: '600'}}>{name}</Text>
-                <Text style={{fontSize: 20, fontWeight: '600'}}>${price}</Text>
+                {/* <Text style={{fontSize: 20, fontWeight: '600'}}>{name}</Text>
+                <Text style={{fontSize: 20, fontWeight: '600'}}>${price}</Text> */}
+                <Text style={{fontSize: 20, fontWeight: '600'}}>Macbook Pro</Text>
+                <Text style={{fontSize: 20, fontWeight: '600'}}>$3,100</Text>
                 <Text>Product Description:</Text>
                 <Text>This is some filler product description that describes the product in great detail</Text>
             </View>

@@ -5,7 +5,8 @@ import {
     Text, 
     StyleSheet, 
     ScrollView, 
-    TouchableOpacity 
+    TouchableOpacity,
+    FlatList, 
 } from "react-native";
 import { 
     Ionicons,
@@ -15,9 +16,10 @@ import {
     FontAwesome,
 } from '@expo/vector-icons'; 
 import BottomNavBar from "../components/bottomNavBar";
-import ItemDisplay from "../components/itemDisplay";
+import itemList from "../constants/itemList";
+import DisplayItem from "../components/itemDisplay";
 
-export default function ProfilePage() {
+export default function ProfilePage({navigation}) {
     return (
         <SafeAreaView>
             <View style={styles.topHeader}>
@@ -62,35 +64,25 @@ export default function ProfilePage() {
             </View>
 
             <View style={styles.wishListItems}>
-                <ScrollView>
-                    <View style={styles.itemRow}>
-                        <ItemDisplay 
-                            item={'Item 1'}
-                            price={'100'}
-                            rating={'4.7'}
+                <FlatList
+                    data={itemList}
+                    renderItem={({item}) => 
+                        <DisplayItem
+                            navigation={navigation} 
+                            item1={item.item1} 
+                            item2={item.item2} 
+                            price1={item.price1}
+                            price2={item.price2}
+                            rating1={item.rating1}
+                            rating2={item.rating2}
+                            image1={item.image1}
+                            image2={item.image2}
                         />
-                        <ItemDisplay 
-                            item={'Item 6'}
-                            price={'120'}
-                            rating={'3.7'}
-                        />
-                    </View>
-                    <View style={styles.itemRow}>
-                        <ItemDisplay 
-                            item={'Item 4'}
-                            price={'225'}
-                            rating={'4.6'}
-                        />
-                        <ItemDisplay 
-                            item={'Item 3'}
-                            price={'65'}
-                            rating={'3.9'}
-                        />
-                    </View>
-                </ScrollView>
+                    }
+                />
             </View>
 
-            <BottomNavBar/>
+            <BottomNavBar navigation={navigation}/>
         </SafeAreaView>
     )
 }
