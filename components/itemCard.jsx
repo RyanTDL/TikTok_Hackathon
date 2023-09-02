@@ -1,4 +1,4 @@
-import React from "react";
+import {React} from "react";
 import { 
     View, 
     SafeAreaView, 
@@ -15,10 +15,10 @@ import {
     AntDesign 
 } from "@expo/vector-icons";
 
-export default function ItemCard({price, image, name}) {
+export default function ItemCard({price, name}) {
     return (
         <SafeAreaView style={styles.container}>
-            <View style={[styles.topHeader, {}]}>
+            <View style={styles.topHeader}>
                 <View>
                     <TouchableOpacity>
                         <Ionicons name="chevron-back-sharp" size={30} color="black" />
@@ -37,12 +37,12 @@ export default function ItemCard({price, image, name}) {
                 </View>
             </View>
 
-            <View style={[styles.productImage, {}]}>
+            <View style={styles.productImage}>
                 <Image 
                     style={{height: '100%', width: '100%'}}
                     resizeMode="contain"
                     // source={require(image)} 
-                    source={require('../assets/headphones.png')} 
+                    source={require('../assets/camera.png')} 
                 />
             </View>
             
@@ -56,17 +56,20 @@ export default function ItemCard({price, image, name}) {
             <View style={styles.bottomBar}>
                 <View>
                     <TouchableOpacity>
-                        <Fontisto name="shopping-store" size={24} color="black" />
-                        <Text>Shop</Text>                
+                        <Fontisto name="shopping-store" size={24} color="grey" />
+                        <Text style={{color: 'grey'}}>Shop</Text>                
                     </TouchableOpacity>
                 </View>
                 <View>
                     <TouchableOpacity>
-                        <Fontisto name="hipchat" size={24} color="black" />
-                        <Text>Chat</Text>
+                        <Fontisto name="hipchat" size={24} color="grey" />
+                        <Text style={{color: 'grey'}}>Chat</Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.wishlistButton}>
+                <TouchableOpacity 
+                    style={styles.wishlistButton}
+                    onPress={() => alert('Item added to wishlist')}
+                >
                     <Text style={{color:'red', fontSize: 15, fontWeight: '500'}}>Add to wishlist</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buyButton}>
@@ -74,6 +77,7 @@ export default function ItemCard({price, image, name}) {
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
+
     )
 }
 
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
     productImage: {
         width: '100%',
         height: '60%',
-        borderWidth: 0.5,
+        // borderWidth: 0.5,
     },
 
     itemDescriptor: {
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: '10%',
-        borderWidth: 1,
+        // borderWidth: 1,
         gap: 20,
     },
 

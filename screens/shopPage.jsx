@@ -1,5 +1,12 @@
-import React from "react";
-import { View, SafeAreaView, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
+import {React, useState} from "react";
+import { 
+    View, 
+    SafeAreaView, 
+    Text, 
+    StyleSheet, 
+    TouchableOpacity, 
+    ScrollView,
+} from "react-native";
 import ItemDisplay from "../components/itemDisplay";
 import BottomNavBar from "../components/bottomNavBar";
 import { 
@@ -7,8 +14,11 @@ import {
     AntDesign,
     FontAwesome5 
 } from '@expo/vector-icons'; 
+// import Modal from "react-native-modal";
+
 
 export default function ShopPage(){
+
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.topSection}>
@@ -20,8 +30,14 @@ export default function ShopPage(){
                         </View>
                         <Text style={{color:'red',fontSize:16, fontWeight: '400'}}>Search</Text>
                     </View>
-                    <AntDesign name="shoppingcart" size={24} color="black" />
-                    <FontAwesome5 name="grip-lines" size={24} color="black" />
+                    <TouchableOpacity>
+                        <AntDesign name="shoppingcart" size={24} color="black" />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => setMoreModal(true)}
+                    >
+                        <FontAwesome5 name="grip-lines" size={24} color="black" />
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.shopDirectory}>
@@ -32,60 +48,42 @@ export default function ShopPage(){
                     <Text style={{color: 'grey', fontSize:16, fontWeight:'500'}}>Food</Text>
                 </View>
             </View>
-            <View style={{width:'100%', height:'75%', borderWidth:2}}>
+            <View style={{width:'100%', height:'75%'}}>
                 <ScrollView>
                     <View style={styles.itemRow}>
                         <ItemDisplay 
-                            cardWidth={'50%'} 
-                            cardHeight={'100%'}
-                            // image={'../assets/camera.png'}
-                            item={'Camera'}
+                            item={'Item 1'}
                             price={'100'}
-                            rating={'4.5'}
+                            rating={'4.7'}
                         />
                         <ItemDisplay 
-                            cardWidth={'50%'} 
-                            cardHeight={'100%'}
-                            // image={'../assets/camera.png'}
-                            item={'Camera'}
-                            price={'100'}
-                            rating={'4.5'}
+                            item={'Item 2'}
+                            price={'290'}
+                            rating={'4.9'}
                         />                   
                     </View>
                     <View style={styles.itemRow}>
                         <ItemDisplay 
-                            cardWidth={'50%'} 
-                            cardHeight={'100%'}
-                            // image={'../assets/camera.png'}
-                            item={'Camera'}
-                            price={'100'}
-                            rating={'4.5'}
+                            item={'Item 3'}
+                            price={'65'}
+                            rating={'3.9'}
                         />
                         <ItemDisplay 
-                            cardWidth={'50%'} 
-                            cardHeight={'100%'}
-                            // image={'../assets/camera.png'}
-                            item={'Camera'}
-                            price={'100'}
-                            rating={'4.5'}
+                            item={'Item 4'}
+                            price={'225'}
+                            rating={'4.6'}
                         />
                     </View>
                     <View style={styles.itemRow}>
                         <ItemDisplay 
-                            cardWidth={'50%'} 
-                            cardHeight={'100%'}
-                            // image={'../assets/camera.png'}
-                            item={'Camera'}
-                            price={'100'}
-                            rating={'4.5'}
+                            item={'Item 5'}
+                            price={'72'}
+                            rating={'2.9'}
                         />
                         <ItemDisplay 
-                            cardWidth={'50%'} 
-                            cardHeight={'100%'}
-                            // image={'../assets/camera.png'}
-                            item={'Camera'}
-                            price={'100'}
-                            rating={'4.5'}
+                            item={'Item 6'}
+                            price={'120'}
+                            rating={'3.7'}
                         />
                     </View>
                 </ScrollView>
@@ -146,5 +144,13 @@ const styles = StyleSheet.create({
         gap: 20,
         // borderWidth: 1,
         // borderColor: 'red',
-    }
+    },
+
+    modalContainer: {
+        justifyContent:'center', 
+        alignItems:'center',
+        borderWidth: 10,
+        width: '100%',
+        height: '100%',
+    },
 })
