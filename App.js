@@ -10,6 +10,7 @@ import ItemCard3 from './screens/shopItems/itemCard3';
 import ItemCard4 from './screens/shopItems/itemCard4';
 import ItemCard5 from './screens/shopItems/itemCard5';
 import ItemCard6 from './screens/shopItems/itemCard6';
+import Randomiser from './screens/randomiser';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -30,6 +31,8 @@ export default function App() {
         <Stack.Screen name="Item Card 4" component={ItemCard4}/>
         <Stack.Screen name="Item Card 5" component={ItemCard5}/>
         <Stack.Screen name="Item Card 6" component={ItemCard6}/>
+
+        <Stack.Screen name="Randomiser" component={Randomiser} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
