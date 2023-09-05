@@ -7,6 +7,7 @@ import {
     TouchableOpacity, 
     FlatList,
     ScrollView,
+    Image,
 } from "react-native";
 import { 
     MaterialCommunityIcons,
@@ -72,7 +73,6 @@ export default function ShopPage({navigation}){
         </SafeAreaView>
     )
 }
-
 
 const styles = StyleSheet.create({
     container: {

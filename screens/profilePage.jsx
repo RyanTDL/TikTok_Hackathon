@@ -7,6 +7,7 @@ import {
     ScrollView, 
     TouchableOpacity,
     FlatList, 
+    Image,
 } from "react-native";
 import { 
     Ionicons,
@@ -65,7 +66,7 @@ export default function ProfilePage({navigation}) {
 
             <View style={styles.wishListItems}>
                 <FlatList
-                    data={itemList}
+                    data={itemList.slice(0, 2)}
                     renderItem={({item}) => 
                         <DisplayItem
                             navigation={navigation} 
@@ -80,12 +81,60 @@ export default function ProfilePage({navigation}) {
                         />
                     }
                 />
+                {/* <ScrollView 
+                    horizontal={true}
+                    style={{width:'100%', height:'100%', borderWidth:10, padding:10}}>
+                    
+                    {true ? 
+                        <ItemDisplay
+                            navigation={navigation}
+                            navigationItemName= 'Item Card 1'
+                            item='Kodak F9 Film Camera'
+                            price='$99'
+                            rating='3.5'
+                            image= {require('../assets/gifts/camera.png')}
+                        /> 
+                    : null}
+                    
+                    {true ? 
+                        <ItemDisplay
+                            navigation={navigation}
+                            navigationItemName= 'Item Card 1'
+                            item='Kodak F9 Film Camera'
+                            price='$99'
+                            rating='3.5'
+                            image= {require('../assets/gifts/camera.png')}
+                        /> 
+                    : null}
+
+                </ScrollView> */}
             </View>
 
             <BottomNavBar navigation={navigation}/>
         </SafeAreaView>
     )
 }
+
+// const ItemDisplay= ({navigation, navigationItemName, image, item, price, rating})=>{
+//     return (
+//         <View style={{width: '100%', height: '90%', borderWidth:0.5}}>
+//             <Image
+//                 style={{height: '75%', width: '100%'}}
+//                 resizeMode="contain"
+//                 source={image}
+//             />
+//             <TouchableOpacity
+//                 onPress={() => navigation.navigate(navigationItemName)}
+//             >
+//                 <View style={{paddingHorizontal: 10}}>
+//                     <Text style={{fontWeight: '400'}}>{item}</Text>
+//                     <Text style={{fontWeight: '600', color:'red'}}>S${price}</Text>
+//                     <Text style={{fontWeight: '300'}}>Rating: {rating}/5.0</Text>
+//                 </View>
+//             </TouchableOpacity>
+//         </View>
+//     )
+// }
 
 const styles = StyleSheet.create({
     topHeader: {
@@ -140,6 +189,9 @@ const styles = StyleSheet.create({
 
     wishListItems: {
         height: '42%',
+        width: '100%',
+        // borderWidth: 10,
+        // borderColor: 'blue',
         // borderWidth: 5,
     },
 

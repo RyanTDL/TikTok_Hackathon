@@ -50,11 +50,13 @@ export default function ActivityPage({navigation}) {
                     title='New Followers'
                     content='felipe.yan started following you'
                 />
-                <MessageItem
-                    image={require('../assets/profileIcons/limitedtime.png')}
-                    title='Special Event'
-                    content='You have been invited to Secret Santa'
-                />
+                <TouchableOpacity onPress={()=>navigation.navigate('Event Page')}>
+                    <MessageItem
+                        image={require('../assets/profileIcons/limitedtime.png')}
+                        title='Special Event'
+                        content='You have been invited to Secret Santa'
+                    />
+                </TouchableOpacity>
             </View>
 
             <View style={[styles.sections, {height: '43%'}]}>
