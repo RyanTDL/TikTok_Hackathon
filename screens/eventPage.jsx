@@ -37,7 +37,11 @@ export default function EventPage({navigation}) {
                     <Text style={{fontSize:20, fontWeight:'800'}}>Secret Santa</Text>
                     <Text style={{fontSize:14, fontWeight:'500', color:'grey'}}>Christmas is coming! Register to join</Text>
                     <TouchableOpacity 
-                        onPress={() => console.log('Start Event')}
+                        // onPress={() => console.log('Start Event')}
+                        onPress={() => {
+                            console.log('Start Event');
+                            navigation.navigate('SecretSanta');
+                          }}
                         style={styles.startButton}
                     >
                         <Text style={{fontSize: 14, fontWeight:'600', color:'white'}}>Start Event</Text>
