@@ -5,15 +5,12 @@ import {
     Text, 
     StyleSheet, 
     Image, 
-    ScrollView,
     TouchableOpacity,
     FlatList, 
 } from "react-native";
 import { 
     AntDesign,
-    Ionicons,
     Feather, 
-    FontAwesome
 } from '@expo/vector-icons';
 import BottomNavBar from "../components/bottomNavBar";
 import friendList from "../constants/friends"
@@ -126,7 +123,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         gap: 5,
         marginHorizontal: 5,
-        // borderWidth: 1,
     },
 
     profileBubble: {

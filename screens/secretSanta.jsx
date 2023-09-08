@@ -59,11 +59,6 @@ export default function SecretSanta({navigation}) {
       navigation.navigate('SecretSantaResults', { assignments: newAssignments });
     }, 1000); 
   };
-  
-  // //Reveal all pairs
-  // const revealAllParticipants = () => {
-  //   setRevealedAssignments(true);
-  // };
 
   //Santa animation
   const [showSantaAnimation, setShowSantaAnimation] = useState(false);
@@ -87,44 +82,39 @@ export default function SecretSanta({navigation}) {
   return (
 
     <ImageBackground style={styles.background} 
-    source={require('../assets/tiktokbackground.jpg')}
-    imageStyle={{opacity: 0.3}}
+      source={require('../assets/tiktokbackground.jpg')}
+      imageStyle={{opacity: 0.3}}
     > 
       <View style={{flex: 1}}>
         <View style={{flex: 1}}>
           {showSantaAnimation && (
-              <AnimatedLottieView
-                source={require("../assets/animations/santa.json")}
-                progress={santaPosition}
-                style={[
-                  styles.santaLottie, 
-                  {
-                    marginLeft: santaPosition.interpolate({
-                      inputRange: [0, 5],
-                      outputRange: ["0%", "100%"], // Move to the right outside the screen
-                    }),
-                  },
-                ]}
-                // autoPlay
-                // loop={false} 
-                resizeMode="cover"
-             
-              />
-            )}
-        
+            <AnimatedLottieView
+              source={require("../assets/animations/santa.json")}
+              progress={santaPosition}
+              style={[
+                styles.santaLottie, 
+                {
+                  marginLeft: santaPosition.interpolate({
+                    inputRange: [0, 5],
+                    outputRange: ["0%", "100%"], // Move to the right outside the screen
+                  }),
+                },
+              ]}
+              resizeMode="cover"             
+            />
+          )}
         </View>
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-              style={styles.randomButton}
-              onPress={() => {
-                startSantaAnimation();
-                assignSecretSanta();
-              }}
-              
-              disabled={showSantaAnimation}
-            >
-              <Text style={styles.santaButtonText}>Assign Secret Santas</Text>
+            style={styles.randomButton}
+            onPress={() => {
+              startSantaAnimation();
+              assignSecretSanta();
+            }}
+            disabled={showSantaAnimation}
+          >
+            <Text style={styles.santaButtonText}>Assign Secret Santas</Text>
           </TouchableOpacity>
         </View>
 
@@ -138,12 +128,7 @@ export default function SecretSanta({navigation}) {
           />
         </View>
       </View>
-
-
     </ImageBackground>
-
-
-
 
   );
 }
@@ -181,8 +166,6 @@ const styles = StyleSheet.create({
     color: 'white', 
     fontSize: 30,
     fontWeight: '600',
-
   },
-
 
 })

@@ -11,8 +11,8 @@ import ItemCard3 from './screens/shopItems/itemCard3';
 import ItemCard4 from './screens/shopItems/itemCard4';
 import ItemCard5 from './screens/shopItems/itemCard5';
 import ItemCard6 from './screens/shopItems/itemCard6';
-import SecretSanta from './screens/SecretSanta';
-import SecretSantaResults from './screens/SecretSantaResults';
+import SecretSanta from './screens/secretSanta';
+import SecretSantaResults from './screens/secretSantaResults';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';

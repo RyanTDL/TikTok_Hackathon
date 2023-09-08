@@ -4,10 +4,7 @@ import {
     SafeAreaView, 
     Text, 
     StyleSheet, 
-    Image, 
-    ScrollView,
     TouchableOpacity,
-    FlatList, 
 } from "react-native";
 import { 
     Ionicons,
@@ -33,18 +30,32 @@ export default function EventPage({navigation}) {
                     <Text style={styles.personJoin}>Alex120 joined the event</Text>
                     <Text style={styles.personJoin}>RyanT0602 joined the event</Text>
                 </View>
+
                 <View style={styles.startEvent}>
                     <Text style={{fontSize:20, fontWeight:'800'}}>Secret Santa</Text>
                     <Text style={{fontSize:14, fontWeight:'500', color:'grey'}}>Christmas is coming! Register to join</Text>
                     <TouchableOpacity 
-                        // onPress={() => console.log('Start Event')}
                         onPress={() => {
                             console.log('Start Event');
                             navigation.navigate('SecretSanta');
-                          }}
+                        }}
                         style={styles.startButton}
                     >
                         <Text style={{fontSize: 14, fontWeight:'600', color:'white'}}>Start Event</Text>
+                    </TouchableOpacity>
+                </View>
+                
+                <View style={[styles.startEvent, {opacity:'0.3'}]}>
+                    <Text style={{fontSize:20, fontWeight:'800'}}>The Game Has Begun</Text>
+                    <Text style={{fontSize:14, fontWeight:'500', color:'grey'}}>Click here to find out who's your giftee</Text>
+                    <TouchableOpacity 
+                        onPress={() => {
+                            console.log('Start Event');
+                            navigation.navigate('SecretSanta');
+                        }}
+                        style={styles.startButton}
+                    >
+                        <Text style={{fontSize: 14, fontWeight:'600', color:'white'}}>Reveal your giftee</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -69,8 +80,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 10,
-        // borderWidth: 5,
-        // borderColor: 'green',
     },
 
     messageTab: {
@@ -86,12 +95,9 @@ const styles = StyleSheet.create({
 
     messages: {
         width: '100%',
-        height: '80%',
+        height: '60%',
         alignItems: 'center',
         gap: 10,
-        // justifyContent: 'space-between',
-        // borderWidth: 2,
-        // borderColor: 'yellow',
     },
 
     personJoin: {
@@ -128,8 +134,6 @@ const styles = StyleSheet.create({
         height: '10%',
         justifyContent: 'center',
         alignItems: 'center',
-        // borderWidth: 2,
-        // borderColor: 'blue',
         gap: 10,
     },
 

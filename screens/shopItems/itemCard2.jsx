@@ -14,8 +14,17 @@ import {
     Fontisto,
     AntDesign 
 } from "@expo/vector-icons";
+import {firestore} from '../../firebaseConfig';
+import { doc, updateDoc } from "firebase/firestore";
+
 
 export default function ItemCard2({navigation, price, name}) {
+    const saveToWishlist = async () => {
+        const docRef = doc(firestore, 'wishlist', 'user1');
+        await updateDoc(docRef, {
+            item2Saved: true,
+        })
+    };
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.topHeader}>
@@ -70,7 +79,10 @@ export default function ItemCard2({navigation, price, name}) {
                 </View>
                 <TouchableOpacity 
                     style={styles.wishlistButton}
-                    onPress={() => alert('Item added to wishlist')}
+                    onPress={() => {
+                        saveToWishlist()
+                        alert('Item added to wishlist')}
+                    }
                 >
                     <Text style={{color:'red', fontSize: 15, fontWeight: '500'}}>Add to wishlist</Text>
                 </TouchableOpacity>

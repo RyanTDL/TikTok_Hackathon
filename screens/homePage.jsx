@@ -1,13 +1,8 @@
 import React from "react";
 import { 
-    View, 
     Image,
     SafeAreaView, 
-    Text, 
     StyleSheet, 
-    TouchableOpacity, 
-    FlatList,
-    ScrollView,
 } from "react-native";
 import BottomNavBar from "../components/bottomNavBar";
 

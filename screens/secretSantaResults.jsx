@@ -11,7 +11,8 @@ import {
   Modal,
   Button,
   ScrollView,
-  FlatList
+  FlatList,
+  SafeAreaView,
 } from "react-native";
 import LottieView from "lottie-react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -110,17 +111,11 @@ export default function SecretSantaResults({ route,navigation }) {
         setButtonText("End Event!");
         setRevealButtonDisabled(false);
         navigation.navigate('Profile Page');
-
     } 
   };
   
-
-  const revealAllParticipants = () => {
-    setRevealedAssignments(true);
-  };
-
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ImageBackground
         style={styles.background}
         source={require("../assets/tiktokbackground.jpg")}
@@ -130,46 +125,46 @@ export default function SecretSantaResults({ route,navigation }) {
           <View style={styles.title}>
             <Text style={{ fontSize: 20, fontWeight: "900", color: 'black'}}>
               {" "}
-              Find a gift for {assignments["Alex120"]}!{" "}
+              Find a gift for {assignments["Keagan"]}!{" "}
             </Text>
             <TouchableOpacity
-            style={[
-              styles.revealButton,
-              {
-                backgroundColor: revealButtonDisabled ? "grey" : "#69C9D0", // Grey color when disabled
-              },
-            ]}
-            onPress={isRandomizing ? revealNames : revealNames}
-            disabled={revealButtonDisabled}
-          >
-              <Text style={styles.participantButtonText}>{buttonText}</Text>
-          </TouchableOpacity>
+              style={[
+                styles.revealButton,
+                {
+                  backgroundColor: revealButtonDisabled ? "grey" : "#69C9D0", // Grey color when disabled
+                },
+              ]}
+              onPress={isRandomizing ? revealNames : revealNames}
+              disabled={revealButtonDisabled}
+            >
+                <Text style={styles.participantButtonText}>{buttonText}</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={{ flex: 1.5,borderWidth: 1, borderColor: 'black'}}>
-            <Text style={styles.subTitle}> {assignments["Alex120"]}'s wishlist </Text>
+            <Text style={styles.subTitle}> {assignments["Keagan"]}'s wishlist </Text>
             <FlatList
-
-                    data={itemList.slice(0, 2)}
-                    renderItem={({item}) => 
-                        <DisplayItem
-                            navigation={navigation} 
-                            item1={item.item1} 
-                            item2={item.item2} 
-                            price1={item.price1}
-                            price2={item.price2}
-                            rating1={item.rating1}
-                            rating2={item.rating2}
-                            image1={item.image1}
-                            image2={item.image2}
-                        />
-                    }
+              data={itemList.slice(0, 2)}
+              renderItem={({item}) => 
+                <DisplayItem
+                  navigation={navigation}
+                  navigationItemName1={item.navigationItemName1}
+                  navigationItemName2={item.navigationItemName2}
+                  item1={item.item1} 
+                  item2={item.item2} 
+                  price1={item.price1}
+                  price2={item.price2}
+                  rating1={item.rating1}
+                  rating2={item.rating2}
+                  image1={item.image1}
+                  image2={item.image2}
                 />
+              }
+            />
           </View>
-          
         </View>
 
-       {isRandomizing ? (
+      {isRandomizing ? (
         <AnimatedLottieView
           source={require("../assets/animations/download.json")}
           progress={animationProgress.current}
@@ -177,9 +172,9 @@ export default function SecretSantaResults({ route,navigation }) {
           autoPlay
           loop
         />
-      ) : null}
+        ) : null
+      }
 
- 
       {revealed ? (
         shuffledParticipants.map(participant => (
           <View key={participant} style={styles.assignmentContainer}>
@@ -199,13 +194,11 @@ export default function SecretSantaResults({ route,navigation }) {
               )}
             </View>
           </View>
-        ))
-      ) : null}
-
-
+        ))) : null
+      }
         <StatusBar style="auto" />
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -224,7 +217,6 @@ const styles = StyleSheet.create({
   title: {
     flex: 0.2, 
     justifyContent: "center",
-    flexDirection: 'row',
     alignItems: 'center',
   },
 
