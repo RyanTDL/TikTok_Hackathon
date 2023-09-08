@@ -4,7 +4,7 @@ In the realm of traditional gift exchanges, we frequently find ourselves grappli
 ## Wishlist Creation and Access
 Integrating TikTok's shop interface makes creating wishlists engaging and convenient for participants, adding a unique shopping dimension. Additionally, allowing gifters to access giftees' wishlists streamlines the gift selection process, ensuring recipients receive items they genuinely desire, adding to the platform's functionality.
 
-<img src="etc/product.png" height="250"> <img src="etc/Wishlist.png" height="250"> <img src="etc/Wishlist_rev.png" height="250">
+<img src="etc/product.png" height="350"> <img src="etc/Wishlist.png" height="350"> <img src="etc/Wishlist_rev.png" height="350">
 
 ## Anonymous Interaction
 The anonymous chat feature fosters mystery and intrigue, allowing participants to communicate without revealing their identities, making the gifting process more interactive and enjoyable.
@@ -20,4 +20,4 @@ By offering virtual currency rewards, the platform incentivizes active participa
 ## Themed Event Challenges
 Incorporating themed challenges injects creativity and anticipation into the event, making it more than just gift-giving but a memorable and engaging experience.
 
-<img src="etc/EventChat.png" height="250">
+<img src="etc/EventChat.png" height="350">
